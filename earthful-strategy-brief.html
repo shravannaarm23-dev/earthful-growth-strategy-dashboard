@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earthful — Consumer Intelligence & Competitive Strategy Brief</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:#FAFAF7;
+  color:#1A1A1A;
+  font-family:'Times New Roman',Times,serif;
+  font-size:14px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+:root{
+  --green:#3D6B4F;
+  --green-d:#2D5040;
+  --green-l:#7BAE94;
+  --sage:#EAF2EC;
+  --amber:#B45309;
+  --red:#C0392B;
+  --blue:#1D4ED8;
+  --surface:#F5F5F0;
+  --surface2:#EDEDEA;
+  --border:#DDDDD6;
+  --border2:#C8C8C0;
+  --text:#1A1A1A;
+  --muted:#4A4A42;
+  --muted2:#777770;
+}
+
+/* HEADER */
+.header{padding:52px 64px 40px;border-bottom:1px solid var(--border2);}
+.header-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:'◆';font-size:7px;}
+.header-title{font-size:clamp(30px,5vw,54px);font-weight:700;line-height:1.06;color:#1A1A1A;letter-spacing:-.02em;max-width:700px;margin-bottom:20px;}
+.header-title em{font-style:italic;color:var(--green);}
+.header-meta{display:flex;gap:28px;flex-wrap:wrap;}
+.meta-item{font-size:12px;color:var(--muted2);}
+.meta-item strong{color:#1A1A1A;font-weight:700;margin-right:6px;}
+.header-ref{text-align:right;font-size:11px;color:var(--border2);font-weight:600;letter-spacing:.08em;line-height:2;flex-shrink:0;padding-top:4px;}
+
+/* VERDICT BANNER */
+.verdict{background:var(--sage);border-bottom:1px solid var(--border2);padding:20px 64px;display:flex;gap:48px;align-items:center;flex-wrap:wrap;}
+.verdict-item{text-align:center;}
+.verdict-num{font-size:28px;font-weight:700;display:block;line-height:1;margin-bottom:5px;}
+.verdict-label{font-size:11px;color:var(--muted2);line-height:1.4;font-weight:500;}
+.verdict-divider{width:1px;height:40px;background:var(--border2);flex-shrink:0;}
+.verdict-thesis{flex:1;min-width:260px;font-size:13px;color:var(--green-d);line-height:1.7;font-style:italic;border-left:2px solid var(--green);padding-left:18px;}
+
+/* TABS */
+.tabs{display:flex;border-bottom:1px solid var(--border2);padding:0 64px;overflow-x:auto;position:sticky;top:0;z-index:100;background:#FAFAF7;}
+.tab{padding:16px 20px;font-size:13px;font-weight:600;color:var(--muted2);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;display:flex;align-items:center;gap:8px;font-family:'Times New Roman',Times,serif;}
+.tab.active{color:#1A1A1A;border-bottom-color:var(--green);}
+.tab:hover:not(.active){color:#1A1A1A;}
+.tab-n{font-size:10px;font-weight:700;color:var(--border2);}
+.tab.active .tab-n{color:var(--green);}
+
+/* PANELS */
+.panel{display:none;padding:48px 64px;}
+.panel.active{display:block;}
+.panel-title{font-size:clamp(20px,3vw,34px);font-weight:700;color:#1A1A1A;margin-bottom:8px;line-height:1.2;letter-spacing:-.01em;}
+.panel-sub{font-size:14px;color:var(--muted2);margin-bottom:36px;max-width:640px;line-height:1.75;}
+
+/* BLOCKS */
+.block{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:24px 28px;margin-bottom:14px;}
+.block:last-child{margin-bottom:0;}
+.block-title{font-size:14px;font-weight:700;color:#1A1A1A;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.dot-green{background:var(--green);}
+.dot-red{background:var(--red);}
+.dot-amber{background:var(--amber);}
+.dot-blue{background:var(--blue);}
+.block-text{font-size:13px;color:var(--muted);line-height:1.75;}
+.block-text strong{color:#1A1A1A;font-weight:700;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:32px;}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;}
+.stat-n{font-size:28px;font-weight:700;display:block;line-height:1;margin-bottom:8px;}
+.stat-l{font-size:12px;color:var(--muted2);line-height:1.4;}
+
+/* INSIGHT CARD */
+.insight{background:var(--sage);border:1px solid var(--green-l);border-radius:10px;padding:28px;margin-bottom:14px;}
+.insight-title{font-size:18px;font-weight:700;color:var(--green-d);margin-bottom:12px;}
+.insight-text{font-size:13px;color:var(--muted);line-height:1.75;}
+.insight-text strong{color:#1A1A1A;}
+
+/* PRODUCT TABLE */
+.prod-table{width:100%;border-collapse:collapse;margin-bottom:14px;}
+.prod-table th{background:var(--surface2);border:1px solid var(--border);padding:12px 14px;font-size:11px;font-weight:700;color:var(--green);text-align:left;letter-spacing:.5px;text-transform:uppercase;}
+.prod-table td{border:1px solid var(--border);padding:12px 14px;font-size:12px;color:var(--muted);background:var(--surface);}
+.prod-table td strong{color:#1A1A1A;font-weight:700;}
+.prod-table tr.hero td{background:var(--sage);}
+.prod-table tr.hero td strong{color:var(--green-d);}
+.star{color:#D97706;font-weight:700;}
+.badge-good{display:inline-block;background:rgba(61,107,79,.1);color:var(--green);border:1px solid rgba(61,107,79,.25);padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;}
+.badge-warn{display:inline-block;background:rgba(192,57,43,.08);color:var(--red);border:1px solid rgba(192,57,43,.2);padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;}
+.badge-mid{display:inline-block;background:rgba(180,83,9,.08);color:var(--amber);border:1px solid rgba(180,83,9,.2);padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;}
+
+/* COMP TABLE */
+.comp-table{width:100%;border-collapse:collapse;margin-bottom:14px;overflow-x:auto;}
+.comp-table th{background:#1A1A1A;border:1px solid #333;padding:12px 14px;font-size:11px;font-weight:700;color:#FAFAF7;text-align:left;letter-spacing:.5px;text-transform:uppercase;}
+.comp-table td{border:1px solid var(--border);padding:12px 14px;font-size:12px;color:var(--muted);background:var(--surface);}
+.comp-table td strong{color:#1A1A1A;font-weight:700;}
+.comp-table tr.earthful td{background:var(--sage);font-weight:600;}
+.comp-table tr.earthful td strong{color:var(--green-d);}
+
+/* BAR */
+.bar-chart{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.bar-row{display:flex;align-items:center;gap:12px;}
+.bar-label{font-size:12px;color:var(--muted);width:160px;flex-shrink:0;text-align:right;}
+.bar-track{flex:1;background:var(--border);border-radius:4px;height:8px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:4px;}
+.bar-value{font-size:12px;font-weight:700;color:#1A1A1A;width:80px;}
+
+/* VOC */
+.voc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.voc-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;}
+.voc-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;}
+.voc-item{font-size:13px;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--border);line-height:1.55;}
+.voc-item:last-child{border-bottom:none;}
+.voc-item::before{margin-right:8px;font-size:10px;}
+.voc-pos::before{content:'✓';color:var(--green);}
+.voc-neg::before{content:'✗';color:var(--red);}
+
+/* RECOMMENDATIONS */
+.rec{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:24px 28px;margin-bottom:14px;display:flex;gap:20px;align-items:flex-start;transition:border-color .2s;}
+.rec:hover{border-color:var(--green-l);}
+.rec-num{font-size:32px;font-weight:700;color:var(--green);flex-shrink:0;line-height:1;margin-top:2px;width:36px;}
+.rec-title{font-size:15px;font-weight:700;color:#1A1A1A;margin-bottom:8px;}
+.rec-text{font-size:13px;color:var(--muted);line-height:1.75;}
+.rec-text strong{color:#1A1A1A;font-weight:700;}
+.rec-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;}
+.tag-impact{background:rgba(61,107,79,.1);color:var(--green);border:1px solid rgba(61,107,79,.2);}
+.tag-effort{background:rgba(29,78,216,.08);color:var(--blue);border:1px solid rgba(29,78,216,.15);}
+.tag-kpi{background:rgba(180,83,9,.08);color:var(--amber);border:1px solid rgba(180,83,9,.15);}
+
+/* FOOTER */
+.brief-footer{padding:24px 64px;border-top:1px solid var(--border2);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted2);}
+
+@media(max-width:768px){
+  .header{padding:32px 20px 24px;}
+  .header-top{flex-direction:column;gap:12px;}
+  .verdict{padding:16px 20px;gap:20px;}
+  .tabs{padding:0 20px;}
+  .panel{padding:32px 20px;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .two-col,.three-col,.voc-grid{grid-template-columns:1fr;}
+  .brief-footer{padding:20px;flex-direction:column;gap:8px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="eyebrow">Consumer Intelligence & Competitive Strategy · Earthful</div>
+      <div class="header-title">
+        The cleanest formulations in market.<br><em>The weakest proof</em> of it.
+      </div>
+      <div class="header-meta">
+        <div class="meta-item"><strong>Covers</strong>Competitive benchmarking, VOC analysis, white-space opportunities, strategic recommendations</div>
+        <div class="meta-item"><strong>Prepared by</strong>Shravan N V</div>
+        <div class="meta-item"><strong>Date</strong>July 2026</div>
+      </div>
+    </div>
+    <div class="header-ref">REF. EF-CI-0726<br>STRATEGY BRIEF<br>5 SECTIONS</div>
+  </div>
+</div>
+
+<!-- VERDICT BANNER -->
+<div class="verdict">
+  <div class="verdict-item">
+    <span class="verdict-num" style="color:var(--green)">4.5★</span>
+    <div class="verdict-label">Women's 40+ Multi<br>1,393 reviews — hero product</div>
+  </div>
+  <div class="verdict-divider"></div>
+  <div class="verdict-item">
+    <span class="verdict-num" style="color:var(--red)">144</span>
+    <div class="verdict-label">Plant Protein reviews<br>vs OZiva's 2,906</div>
+  </div>
+  <div class="verdict-divider"></div>
+  <div class="verdict-item">
+    <span class="verdict-num" style="color:var(--amber)">0</span>
+    <div class="verdict-label">Third-party certifications<br>for clean label claims</div>
+  </div>
+  <div class="verdict-divider"></div>
+  <div class="verdict-item">
+    <span class="verdict-num" style="color:var(--green)">200%</span>
+    <div class="verdict-label">Premium over Organic India<br>without matching certifications</div>
+  </div>
+  <div class="verdict-divider"></div>
+  <div class="verdict-thesis">
+    Earthful has the right product, the right positioning, and the right moment. The gap is between what the brand claims and what it can independently prove.
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab active" onclick="show(0)"><span class="tab-n">01</span> Overview</div>
+  <div class="tab" onclick="show(1)"><span class="tab-n">02</span> Product Portfolio</div>
+  <div class="tab" onclick="show(2)"><span class="tab-n">03</span> Competitive Benchmarking</div>
+  <div class="tab" onclick="show(3)"><span class="tab-n">04</span> Voice of Customer</div>
+  <div class="tab" onclick="show(4)"><span class="tab-n">05</span> Recommendations</div>
+</div>
+
+<!-- PANEL 1: OVERVIEW -->
+<div class="panel active">
+  <div class="panel-title">The premium clean-label space is real, growing, and Earthful is correctly positioned in it. Two structural gaps are capping the ceiling.</div>
+  <div class="panel-sub">India's wellness supplement market is shifting from synthetic-heavy to clean-label. Earthful arrived at the right time with the right philosophy. The challenge is converting belief in the philosophy into purchase confidence at 2–3× the market rate.</div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-n" style="color:var(--green)">₹9–11</span>
+      <div class="stat-l">Cost per capsule — 2–3× above Himalayan Organics and Organic India</div>
+    </div>
+    <div class="stat">
+      <span class="stat-n" style="color:var(--amber)">100%</span>
+      <div class="stat-l">Plant-derived, synthetic-free — the strongest formulation claim in the category</div>
+    </div>
+    <div class="stat">
+      <span class="stat-n" style="color:var(--red)">Self-reported</span>
+      <div class="stat-l">Testing status — no NSF, USP, or NPOP certification currently visible</div>
+    </div>
+    <div class="stat">
+      <span class="stat-n" style="color:var(--green)">1,393</span>
+      <div class="stat-l">Reviews on Women's 40+ Multi — the single strongest proof-of-market-fit</div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-title">The core tension</div>
+    <div class="insight-text">
+      Earthful charges <strong>50–200% more than competitors</strong> on the basis of cleaner, purely plant-derived formulations. That claim is likely true. But the buyer deciding between ₹634 Earthful and ₹499 Organic India — who also claims clean, organic ingredients — needs a reason to believe the premium is justified. <strong>Without an independent certification (NPOP, NSF, or USP), the justification rests entirely on brand trust, which is still being built.</strong> Organic India's NPOP certification does the trust-building work for them. Earthful currently does it through storytelling alone. Closing this gap is the single highest-leverage strategic move available.
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="block">
+      <div class="block-title"><div class="dot dot-green"></div>What's working</div>
+      <div class="block-text">
+        <strong>Women's 40+/50+ Multivitamin</strong> is a breakout product — 1,393 reviews at 4.5★. This product has found genuine product-market fit in a segment (perimenopausal and menopausal women) that most supplement brands underserve. It signals a real brand insight and real customer pull.<br><br>
+        <strong>Taste and digestibility</strong> are consistent praise points across the plant protein reviews — "tastes like real mango, not artificial" and "zero bloating with ajwain" are the kind of experiential differentiators no certification can replace. These are real moats.<br><br>
+        <strong>Shark Tank visibility</strong> and Pre-Series A funding from Fireside Ventures (India's top consumer VC) provide credibility signals that competitors can't manufacture quickly.
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-title"><div class="dot dot-red"></div>What's limiting growth</div>
+      <div class="block-text">
+        <strong>Social proof deficit on newer products</strong> — Collagen (96 reviews) and Melatonin (95 reviews) are effectively invisible on Amazon for a first-time buyer doing research. At ₹680–₹583 per month, no one buys on trust alone.<br><br>
+        <strong>Plant Protein review gap</strong> — 144 reviews vs OZiva's 2,906. At ₹1,250 for 12 servings (₹104/serving), this is the highest-priced product with the least social proof. Every unconverted visitor at this price point is a compounding loss.<br><br>
+        <strong>No independent certification</strong> — competitors like Organic India carry NPOP, Decode Age carries FDA-registered GMP. Earthful's "cleanest formulations" claim is currently self-certified, which limits trust-building at the premium tier.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL 2: PRODUCT PORTFOLIO -->
+<div class="panel">
+  <div class="panel-title">Seven products. One hero. Three that need social proof urgently.</div>
+  <div class="panel-sub">The Women's 40+ Multivitamin is the anchor product by every metric. It should inform NPD strategy, bundling, and where to concentrate review-generation effort.</div>
+
+  <table class="prod-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Rating</th>
+        <th>Reviews</th>
+        <th>Cost/Day</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="hero">
+        <td><strong>Women's Multi 40+/50+ ★</strong></td>
+        <td><strong>₹634</strong></td>
+        <td class="star">4.5 ★</td>
+        <td><strong>1,393</strong></td>
+        <td>₹21/day</td>
+        <td><span class="badge-good">Hero Product</span></td>
+      </tr>
+      <tr>
+        <td><strong>Calcium Magnesium</strong></td>
+        <td>₹544</td>
+        <td class="star">4.4 ★</td>
+        <td>459</td>
+        <td>₹18/day</td>
+        <td><span class="badge-good">Healthy</span></td>
+      </tr>
+      <tr>
+        <td><strong>Men's Multivitamin</strong></td>
+        <td>₹634</td>
+        <td class="star">4.4 ★</td>
+        <td>359</td>
+        <td>₹21/day</td>
+        <td><span class="badge-good">Growing</span></td>
+      </tr>
+      <tr>
+        <td><strong>Women's Multivitamin</strong></td>
+        <td>₹634</td>
+        <td class="star">4.5 ★</td>
+        <td>279</td>
+        <td>₹21/day</td>
+        <td><span class="badge-mid">Needs push</span></td>
+      </tr>
+      <tr>
+        <td><strong>Plant Protein</strong></td>
+        <td>₹1,250</td>
+        <td class="star">4.3 ★</td>
+        <td>144</td>
+        <td>₹104/serving</td>
+        <td><span class="badge-warn">Urgent gap</span></td>
+      </tr>
+      <tr>
+        <td><strong>Plant Collagen</strong></td>
+        <td>₹680</td>
+        <td class="star">4.1 ★</td>
+        <td>96</td>
+        <td>₹23/day</td>
+        <td><span class="badge-warn">Urgent gap</span></td>
+      </tr>
+      <tr>
+        <td><strong>Melatonin Sleep</strong></td>
+        <td>₹583</td>
+        <td class="star">4.1 ★</td>
+        <td>95</td>
+        <td>₹19/day</td>
+        <td><span class="badge-warn">Urgent gap</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight">
+    <div class="insight-title">The Women's 40+ Multivitamin tells you where to go next</div>
+    <div class="insight-text">
+      1,393 reviews at 4.5★ means Earthful has found genuine product-market fit with <strong>perimenopausal and menopausal women</strong> — a segment most supplement brands address generically. This isn't luck. It's insight. The natural NPD extension is a <strong>"Women's Hormonal Wellness Stack"</strong> — combining the Women's 40+ Multi + Collagen + Melatonin into a bundled monthly pack. These three products already exist. The bundle would serve the same buyer who is already Earthful's most satisfied customer, increase average order value significantly, and give Collagen and Melatonin a social proof lift by riding on the hero product's reputation.
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="block">
+      <div class="block-title"><div class="dot dot-amber"></div>Plant Protein — highest price, lowest social proof</div>
+      <div class="block-text">
+        At <strong>₹1,250 for 12 servings</strong> (₹104 per serving), Plant Protein is the highest-priced product in the range and the most difficult conversion. OZiva — the most comparable competitor — has <strong>2,906 reviews at 4.0★</strong>. Earthful has 144. At nearly 3× OZiva's per-serving price, the review gap means most first-time buyers comparing both products on Amazon will choose OZiva. A structured 90-day review generation campaign targeting verified purchasers is the highest-priority fix for this product.
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-title"><div class="dot dot-green"></div>Melatonin — uncrowded, premium, well-positioned</div>
+      <div class="block-text">
+        The Melatonin + Ashwagandha + Valerian Root + Chamomile combination is a <strong>genuinely differentiated sleep product</strong> — not just standalone melatonin. No major competitor offers this exact combination at this formulation standard. The 4.1★ rating on 95 reviews is encouraging. Sleep health is one of the fastest-growing supplement sub-categories in India. This product needs social proof more than it needs repositioning. Get 200+ reviews and it becomes a strong standalone category leader.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL 3: COMPETITIVE BENCHMARKING -->
+<div class="panel">
+  <div class="panel-title">Six competitors. Earthful leads on formulation purity. Trails on price, certification, and social proof.</div>
+  <div class="panel-sub">The competitive landscape is fragmented — no single brand owns all dimensions. Earthful's clearest moat is formulation philosophy. The question is whether that moat is defensible at 2–3× the price without independent verification.</div>
+
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>Brand</th>
+        <th>Price/Capsule</th>
+        <th>Formulation</th>
+        <th>Certifications</th>
+        <th>Positioning</th>
+        <th>Key Gap vs Earthful</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="earthful">
+        <td><strong>Earthful ★</strong></td>
+        <td><strong>₹9–11</strong></td>
+        <td>100% plant-derived, zero synthetic additives</td>
+        <td>Self-reported only</td>
+        <td>Cleanest formulations, minimalist natural living</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Organic India</td>
+        <td>₹4–5</td>
+        <td>Certified organic whole herbs, NPOP certified</td>
+        <td><strong>NPOP + GMP</strong></td>
+        <td>Traditional Ayurvedic, women's wellness</td>
+        <td>Similar purity claim at 60% lower price with independent certification</td>
+      </tr>
+      <tr>
+        <td>Himalayan Organics</td>
+        <td>₹4–6</td>
+        <td>100+ ingredients with probiotics, GMP certified</td>
+        <td>GMP + Gluten-free</td>
+        <td>Value premium, comprehensive nutrition</td>
+        <td>Better ingredient variety + probiotics at 50% lower cost</td>
+      </tr>
+      <tr>
+        <td>Kapiva</td>
+        <td>₹8–12</td>
+        <td>Modern Ayurveda with KSM-66, 24K gold processing</td>
+        <td>NABL-certified testing</td>
+        <td>Condition-focused, lifestyle management</td>
+        <td>Similar price point with specialized clinical validation</td>
+      </tr>
+      <tr>
+        <td>OZiva (Protein)</td>
+        <td>—</td>
+        <td>Plant protein, certified clean</td>
+        <td>Clean label certified</td>
+        <td>Complete amino profile, performance</td>
+        <td>2,906 reviews vs Earthful's 144 — massive trust gap</td>
+      </tr>
+      <tr>
+        <td>Neuherbs</td>
+        <td>₹7</td>
+        <td>Science-backed with ginseng + herbal antioxidants</td>
+        <td>Preservative-free, gluten-free</td>
+        <td>Performance nutrition, stress management</td>
+        <td>Better value multivitamins with science backing</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="block" style="margin-top:14px;">
+    <div class="block-title"><div class="dot dot-red"></div>The Organic India problem — same claim, lower price, independent proof</div>
+    <div class="block-text">
+      Organic India is Earthful's most dangerous competitor — not because of formulation superiority, but because of <strong>certification. NPOP (National Programme for Organic Production) certification means a government-backed body has independently verified their organic claims.</strong> Earthful's claim of "100% plant-derived, synthetic-free" is stronger on paper — but it's self-reported. For a first-time buyer in the ₹500–700 price range comparing both brands, Organic India's certification acts as a trust proxy that Earthful doesn't yet have. The 60-70% lower price makes the comparison even harder to win on brand alone.
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="block">
+      <div class="block-title"><div class="dot dot-green"></div>Where no competitor is playing</div>
+      <div class="block-text">
+        <strong>Perimenopausal women's wellness</strong> — Earthful's Women's 40+ product has identified this segment. No major competitor has a dedicated, clean-label product stack specifically for this demographic. Organic India is women-focused but broader. Himalayan Organics is comprehensive but not targeted. <strong>This is a white space Earthful is already winning in — it just needs to be named, owned, and expanded.</strong>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-title"><div class="dot dot-green"></div>Bioavailability — Earthful's underused scientific advantage</div>
+      <div class="block-text">
+        Plant-based iron (from Earthful) causes significantly less stomach upset than synthetic ferrous sulphate. Natural folate is better utilised than synthetic folic acid. Acerola Vitamin C absorbs 2–3× better than ascorbic acid. <strong>These are scientifically real advantages that Earthful isn't communicating loudly enough.</strong> They belong on every product page and in every performance marketing creative — not buried in ingredient lists.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL 4: VOICE OF CUSTOMER -->
+<div class="panel">
+  <div class="panel-title">What customers are actually saying — across Earthful and competitors.</div>
+  <div class="panel-sub">Amazon reviews are the most honest market research available. Customers say things here they'd never say in a survey. The patterns reveal both what to protect and what to fix.</div>
+
+  <div class="voc-grid">
+    <div class="voc-card">
+      <div class="voc-label" style="color:var(--green)">✓ What Earthful customers love</div>
+      <div class="voc-item voc-pos">Taste is genuinely natural — "tastes like real mango, not artificial" appears across plant protein reviews</div>
+      <div class="voc-item voc-pos">Zero digestive discomfort — ajwain addition in protein specifically praised for eliminating bloating</div>
+      <div class="voc-item voc-pos">Women's 40+ Multivitamin praised for hormonal health support and energy improvement</div>
+      <div class="voc-item voc-pos">Clean label trust — "finally found a supplement without fillers" is a common sentiment</div>
+      <div class="voc-item voc-pos">Calcium with K2 and magnesium praised for absorption over standalone calcium competitors</div>
+    </div>
+    <div class="voc-card">
+      <div class="voc-label" style="color:var(--red)">✗ What Earthful customers flag</div>
+      <div class="voc-item voc-neg">Price sensitivity — consistent mention of higher cost vs alternatives across all product reviews</div>
+      <div class="voc-item voc-neg">Plant Protein at ₹1,250 for only 12 servings flagged as poor value-per-serving vs competitors</div>
+      <div class="voc-item voc-neg">No independent certification visible — some buyers ask for third-party testing confirmation</div>
+      <div class="voc-item voc-neg">Collagen and Melatonin products have very limited reviews — trust signal too weak for new buyers</div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-title">The most valuable review insight</div>
+    <div class="insight-text">
+      Across competitor reviews, the most common complaint is <strong>texture and mixability</strong> — Urban Platter Pea Protein is "grainy," AS-IT-IS Brown Rice Protein "doesn't mix well with water," OZiva's unflavoured version is "bland." <strong>Earthful's genuine Alphonso mango flavour and zero-bloating formula are direct, defensible answers to the most common category complaints.</strong> This should be the primary performance marketing message for Plant Protein — not "clean ingredients" (every brand claims this) but "the protein that actually tastes good and doesn't upset your stomach." That's the real differentiator.
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-title"><div class="dot dot-amber"></div>Cosmix — the most relevant direct competitor to watch</div>
+    <div class="block-text">
+      Among protein competitors, <strong>Cosmix No-Nonsense (4.2★, 238 reviews)</strong> has a positioning almost identical to Earthful — gut-friendly herb blend, clean formulation, good natural mango taste. Customer quotes: "Love the digestive herbs - no protein bloating." Some find it too sweet. <strong>Cosmix is the most directly comparable product on positioning and formulation philosophy. Earthful's current advantage over Cosmix is Shark Tank visibility and the broader multi-product ecosystem. Cosmix is likely to grow fast in exactly the same customer segment.</strong>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="block">
+      <div class="block-title"><div class="dot dot-green"></div>Review patterns by product — what to learn</div>
+      <div class="block-text">
+        <strong>Women's 40+:</strong> Buyers consistently mention hormonal benefits, energy, and skin improvement — real health outcomes, not just ingredient claims. This is proof of product efficacy.<br><br>
+        <strong>Plant Protein:</strong> Early buyers love it. The sample size (144) is too small to overcome OZiva's 2,906 in a side-by-side comparison. Same quality, same sentiment, 20× the review gap.
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-title"><div class="dot dot-blue"></div>The subscription opportunity</div>
+      <div class="block-text">
+        Supplements are inherently repeat-purchase products. Yet no review or customer feedback mentions a subscription model. <strong>Amazon Subscribe & Save isn't mentioned for Earthful products in the analysis.</strong> A D2C subscription for "Women's Wellness Monthly" — combining Women's 40+ Multi + Melatonin — at 15% discount would increase LTV and reduce the per-unit acquisition cost that's making the premium price harder to justify.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL 5: RECOMMENDATIONS -->
+<div class="panel">
+  <div class="panel-title">Five moves — from most urgent to most strategic.</div>
+  <div class="panel-sub">Each recommendation is grounded in specific data. The first two address immediate revenue and trust gaps. The last three build the category leadership position.</div>
+
+  <div class="rec">
+    <div class="rec-num">1</div>
+    <div>
+      <div class="rec-title">Get NPOP or NSF certified — this closes the single biggest objection at the premium price point</div>
+      <div class="rec-text">
+        Earthful's "100% plant-derived, synthetic-free" is the strongest formulation claim in the category. The problem: it's self-certified. Organic India's NPOP certification means a government body independently verified their claims. Kapiva uses NABL-certified testing. Decode Age is FDA-registered and GMP-certified. <strong>When a buyer compares ₹634 Earthful vs ₹499 Organic India, Organic India's certification acts as a trust shortcut Earthful currently can't match.</strong> NPOP certification directly addresses the most common barrier to first-time purchase. It also enables messaging that no competitor can undercut: "The only supplement brand with NPOP certification and zero synthetic additives."
+      </div>
+      <div class="rec-tags">
+        <span class="tag tag-impact">Highest Strategic Impact</span>
+        <span class="tag tag-effort">Medium Effort</span>
+        <span class="tag tag-kpi">KPI: New buyer conversion rate, repeat purchase rate</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rec">
+    <div class="rec-num">2</div>
+    <div>
+      <div class="rec-title">90-day review generation campaign for Plant Protein, Collagen, and Melatonin — immediately</div>
+      <div class="rec-text">
+        Plant Protein (144 reviews), Collagen (96), and Melatonin (95) are effectively invisible to first-time buyers comparing products on Amazon. <strong>At ₹583–₹1,250 price points, buyers read reviews before purchasing. Fewer than 100–150 reviews signals an unproven product.</strong> Use Amazon's brand dashboard to email every verified purchaser for a review. Add a "Rate your experience" insert card in packaging with a QR code. Offer a ₹50 off next purchase coupon for leaving an honest review. Target 300+ reviews on Plant Protein and 200+ on Collagen and Melatonin within 90 days. This is the highest-ROI action available on existing products.
+      </div>
+      <div class="rec-tags">
+        <span class="tag tag-impact">Immediate Revenue Impact</span>
+        <span class="tag tag-effort">Low Effort</span>
+        <span class="tag tag-kpi">KPI: Review count per ASIN, Amazon conversion rate</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rec">
+    <div class="rec-num">3</div>
+    <div>
+      <div class="rec-title">Launch a "Women's Hormonal Wellness Stack" — the hero product is already built, bundle it</div>
+      <div class="rec-text">
+        The Women's 40+/50+ Multivitamin has 1,393 reviews at 4.5★. That buyer — perimenopausal and menopausal women managing hormonal health — also needs sleep support (Melatonin + Ashwagandha) and skin/collagen support (Plant Collagen). <strong>All three products exist. The stack doesn't.</strong> Launch a curated "40+ Wellness Stack" bundle at ₹1,699 (vs ₹1,897 purchased separately — a 10% saving). This increases average order value, drives cross-product discovery, gives Collagen and Melatonin social proof by associating them with the hero product, and directly serves a segment no competitor has formally addressed as a named stack. Lead with the Women's 40+ brand equity. Let it pull the others.
+      </div>
+      <div class="rec-tags">
+        <span class="tag tag-impact">High Revenue Impact</span>
+        <span class="tag tag-effort">Low Effort</span>
+        <span class="tag tag-kpi">KPI: Bundle AOV, Collagen and Melatonin review velocity</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rec">
+    <div class="rec-num">4</div>
+    <div>
+      <div class="rec-title">Reframe Plant Protein marketing around the category's real objection — not ingredients, but taste and digestion</div>
+      <div class="rec-text">
+        Across competitor reviews, the most common complaints are: grainy texture, poor mixability, and post-consumption bloating. Earthful's Plant Protein directly solves all three — genuine Alphonso mango flavour, clean mixing, and ajwain for digestion. <strong>But current marketing leads with "clean ingredients" — a claim every competitor makes.</strong> The performance marketing angle that would convert is: "The protein that actually tastes like mango and doesn't upset your stomach. Finally." That's not a marketing claim. That's what buyers are already saying. The creative is already in the reviews. Put it in the ads.
+      </div>
+      <div class="rec-tags">
+        <span class="tag tag-impact">Medium-High Impact</span>
+        <span class="tag tag-effort">Low Effort</span>
+        <span class="tag tag-kpi">KPI: Plant Protein CTR, D2C conversion rate</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rec">
+    <div class="rec-num">5</div>
+    <div>
+      <div class="rec-title">Check quick commerce distribution — Blinkit and Zepto are where health impulse purchases now happen</div>
+      <div class="rec-text">
+        Supplements like Earthful's daily multivitamins and sleep capsules are low-weight, high-value, and perfectly sized for quick commerce. <strong>66% of India's online grocery orders now come through Blinkit, Zepto, and Swiggy Instamart.</strong> If Earthful is not on these platforms, health-conscious buyers browsing for a quick supplement reorder will find Himalayan Organics or Organic India instead. The Women's 40+ Multi and Calcium products are especially strong quick-commerce candidates — they're repeat purchases, compact, and priced in the impulse-consideration range. Audit current Q-commerce presence and list priority SKUs on Blinkit and Zepto immediately if not already there.
+      </div>
+      <div class="rec-tags">
+        <span class="tag tag-impact">High Distribution Impact</span>
+        <span class="tag tag-effort">Low Effort</span>
+        <span class="tag tag-kpi">KPI: Q-commerce GMV as % of total revenue</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="brief-footer">
+  <div>Prepared by <strong>Shravan N V</strong> · shravannv112@gmail.com · +91 8197473044</div>
+  <div>Earthful · Consumer Intelligence & Competitive Strategy Brief · July 2026</div>
+</div>
+
+<script>
+function show(i){
+  document.querySelectorAll('.panel').forEach((p,j)=>p.classList.toggle('active',i===j));
+  document.querySelectorAll('.tab').forEach((t,j)=>t.classList.toggle('active',i===j));
+}
+</script>
+</body>
+</html>
