@@ -1,96 +1,156 @@
-🧠 Earthful Growth Strategy Dashboard
+# Earthful Competitive Intelligence Dashboard
 
-A Founder’s Office–style competitive intelligence dashboard + live app analyzing Earthful’s positioning in India’s clean-label supplement market using Amazon pricing + customer review insights.
+A **Founder’s Office–style strategy dashboard + interactive app** analyzing Earthful’s positioning in India’s clean-label supplement market using **Amazon product data and customer reviews**.
 
-🚀 Live Interactive Dashboard
+---
 
-👉 https://shravannaarm23-dev.github.io/earthful-growth-strategy-dashboard/
+## 🚀 Live Demo
 
-🎯 Problem Statement
+👉 [Earthful Growth Strategy Dashboard](https://shravannaarm23-dev.github.io/earthful-growth-strategy-dashboard/)
+(Interactive dashboard built for real-time exploration of market insights)
 
-How can Earthful strengthen its premium positioning while addressing real customer concerns visible in market data?
+---
 
-This project simulates a Founder’s Office strategy deep-dive, combining:
+## 🚀 Overview
 
-Market benchmarking
-Pricing analytics
-Customer sentiment insights
-Product-thinking via an interactive dashboard
-🧩 What Makes This Project Different
+This project answers a critical business question:
 
-Most candidates stop at analysis.
+> **How is Earthful positioned vs. competitors, and what strategic opportunities emerge from real customer and pricing data?**
 
-This project goes further:
+Unlike static analysis, this project is built as an **interactive app**, enabling users to:
 
-✅ Data → Insight → Strategy → Product (Live App)
-✅ Built using real Amazon customer signals (reviews + ratings)
-✅ Designed for decision-making, not just visualization
-✅ Delivered as a clickable dashboard (not PPT/static report)
+* Explore competitor positioning
+* Compare pricing dynamically
+* Understand customer perception signals
 
-📊 Data & Methodology
-📦 Data Source
-Amazon.in product listings
-Customer reviews & ratings
-Brand positioning signals
-⚙️ Approach
-Selected key competitors in clean-label supplement category
-Standardized pricing into ₹/day metric
-Extracted customer sentiment themes from reviews
-Created a clean-label positioning score
-Built visual + interactive dashboard
-🔍 Key Insights
-💰 Pricing
-Earthful operates at a 50–200% premium vs competitors
-₹21/day vs ₹6–₹18 competitor range
-🌱 Brand Perception
-Strong association with clean-label & quality
-Reinforced by positive customer reviews
-⚠️ Market Gaps
-Certification trust gap (highlighted in reviews)
-Affordability barrier for mass adoption
-🧠 Strategic Recommendations
-Introduce entry-level SKU (₹10–₹15/day range)
-Add third-party certifications (USP unlock)
-Launch kids-focused clean nutrition segment
-Build subscription model for retention
-🖥️ Product Features (Live App)
-📍 Positioning Map
-Visualizes Price vs Clean-label score
-💸 Cost-per-Day Analysis
-Direct comparison of consumer affordability
-📊 Competitive Matrix
-Executive-level benchmarking across brands
-🧾 Review-Driven Insights
-Converts qualitative reviews → strategic signals
-⚡ Interactive UX
-Built for exploration and fast decision-making
-🛠️ Tech Stack
-HTML, CSS, JavaScript
-Chart.js (visualization)
-GitHub Pages (deployment)
-▶️ Run Locally
-git clone https://github.com/your-username/earthful-growth-strategy-dashboard.git
-cd earthful-growth-strategy-dashboard
-open index.html
-🧠 Why This Project Matters (Recruiter Lens)
+---
 
-This project demonstrates:
+## 📊 Data Source & Methodology
 
-Founder’s Office thinking (problem → insight → execution)
-Ability to work with messy real-world data (Amazon reviews)
-Strong business intuition + analytical rigor
-Product mindset: turning analysis into a usable tool
-🔮 Future Improvements
-Automated Amazon scraping pipeline
-NLP-based sentiment analysis
-Multi-platform data (Flipkart, D2C brands)
-Filters + user inputs (full productization)
-👤 Author
+* **Platform:** Amazon.in
+* **Data used:**
 
-Shravan N V
+  * Product pricing (₹/capsule, ₹/day)
+  * Customer ratings (★)
+  * Review sentiment themes
+  * Brand claims (clean-label, ingredients, certifications)
+
+### Approach:
+
+1. Benchmarked 6 key competitors
+2. Standardized pricing into comparable metrics
+3. Derived **clean-label score**
+4. Extracted **insights from customer reviews**
+5. Converted insights into **interactive visualizations**
+
+---
+
+## 📊 Key Insights
+
+* **Premium Pricing:** Earthful is priced **50–200% higher** than competitors
+* **Strong Brand Perception:** Clean-label positioning reinforced by positive reviews
+* **High Cost Barrier:** ₹21/day vs ₹6–₹18 competitors
+* **Trust Gap:** Lack of third-party certification emerges in customer perception
+
+---
+
+## 🧩 Features
+
+### 📍 Brand Positioning Map
+
+* Price vs clean-label score
+* Shows **premium differentiation visually**
+
+### 💰 Cost-per-Day Comparison
+
+* Real consumer affordability comparison
+
+### 📋 Competitive Matrix
+
+* Executive-ready benchmarking across:
+
+  * Pricing
+  * Positioning
+  * Strengths
+  * Ratings
+
+### 🎯 Strategic White Space
+
+* Identified using **data + customer sentiment**
+
+  * Certification gap
+  * Kids nutrition opportunity
+  * Subscription model
+
+### 🌐 Interactive App Layer
+
+* Built for **exploration, not just presentation**
+* Enables quick decision-making and insight discovery
+
+---
+
+## 🛠️ Tech Stack
+
+* **HTML, CSS, JavaScript**
+* **Chart.js** (data visualization)
+* **GitHub Pages** (hosting)
+
+---
+
+## ▶️ How to Run Locally
+
+```bash
+git clone https://github.com/your-username/earthful-competitive-intelligence-dashboard.git
+cd earthful-competitive-intelligence-dashboard
+open earthful_competitive_intelligence_dashboard.html
+```
+
+---
+
+## 🎯 Why This Project Stands Out
+
+This is not just a dashboard.
+
+It demonstrates:
+
+* **Data → Insight → Strategy → Product (App)**
+* Ability to work with **real customer-generated data**
+* Strong **business + analytical thinking**
+* Execution mindset expected in:
+
+  * Founder’s Office
+  * Strategy roles
+  * Business/Product Analyst roles
+
+---
+
+## 🧠 My Approach
+
+I approached this like a **real business problem**:
+
+* Built from **raw market + review data**
+* Focused on **decision-making, not just visualization**
+* Delivered as a **usable product (app), not just analysis**
+
+---
+
+## 📌 Future Improvements
+
+* Automated Amazon review scraping
+* NLP-based sentiment analysis
+* Multi-platform comparison (Flipkart, D2C)
+* Full-stack version with filters & user inputs
+
+---
+
+## 👤 Author
+
+**Shravan N V**
 PGDM-ABM, ICAR-NAARM
 Aspiring Strategy / Founder’s Office / Analyst roles
 
-⭐ If you found this useful
+---
 
-Star ⭐ the repo and feel free to connect!
+## ⭐ If you found this useful
+
+Give it a ⭐ and feel free to connect!
