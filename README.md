@@ -1,125 +1,96 @@
-# 🧠 Earthful Competitive Intelligence Dashboard
+🧠 Earthful Growth Strategy Dashboard
 
-A **Founder’s Office–style strategy dashboard** analyzing Earthful’s positioning in India’s clean-label supplement market using **Amazon product data and customer reviews**.
+A Founder’s Office–style competitive intelligence dashboard + live app analyzing Earthful’s positioning in India’s clean-label supplement market using Amazon pricing + customer review insights.
 
----
+🚀 Live Interactive Dashboard
 
-## 🚀 Overview
+👉 https://shravannaarm23-dev.github.io/earthful-growth-strategy-dashboard/
 
-This project answers a key business question:
+🎯 Problem Statement
 
-> **How is Earthful positioned vs. competitors, and what strategic opportunities emerge from real customer and pricing data?**
+How can Earthful strengthen its premium positioning while addressing real customer concerns visible in market data?
 
-The analysis is built using:
+This project simulates a Founder’s Office strategy deep-dive, combining:
 
-* Amazon product listings
-* Pricing data
-* Customer ratings & review signals
+Market benchmarking
+Pricing analytics
+Customer sentiment insights
+Product-thinking via an interactive dashboard
+🧩 What Makes This Project Different
 
-It combines **market intelligence + consumer perception + pricing strategy** into one dashboard.
+Most candidates stop at analysis.
 
----
+This project goes further:
 
-## 📊 Data Source & Methodology
+✅ Data → Insight → Strategy → Product (Live App)
+✅ Built using real Amazon customer signals (reviews + ratings)
+✅ Designed for decision-making, not just visualization
+✅ Delivered as a clickable dashboard (not PPT/static report)
 
-* **Platform:** Amazon.in
+📊 Data & Methodology
+📦 Data Source
+Amazon.in product listings
+Customer reviews & ratings
+Brand positioning signals
+⚙️ Approach
+Selected key competitors in clean-label supplement category
+Standardized pricing into ₹/day metric
+Extracted customer sentiment themes from reviews
+Created a clean-label positioning score
+Built visual + interactive dashboard
+🔍 Key Insights
+💰 Pricing
+Earthful operates at a 50–200% premium vs competitors
+₹21/day vs ₹6–₹18 competitor range
+🌱 Brand Perception
+Strong association with clean-label & quality
+Reinforced by positive customer reviews
+⚠️ Market Gaps
+Certification trust gap (highlighted in reviews)
+Affordability barrier for mass adoption
+🧠 Strategic Recommendations
+Introduce entry-level SKU (₹10–₹15/day range)
+Add third-party certifications (USP unlock)
+Launch kids-focused clean nutrition segment
+Build subscription model for retention
+🖥️ Product Features (Live App)
+📍 Positioning Map
+Visualizes Price vs Clean-label score
+💸 Cost-per-Day Analysis
+Direct comparison of consumer affordability
+📊 Competitive Matrix
+Executive-level benchmarking across brands
+🧾 Review-Driven Insights
+Converts qualitative reviews → strategic signals
+⚡ Interactive UX
+Built for exploration and fast decision-making
+🛠️ Tech Stack
+HTML, CSS, JavaScript
+Chart.js (visualization)
+GitHub Pages (deployment)
+▶️ Run Locally
+git clone https://github.com/your-username/earthful-growth-strategy-dashboard.git
+cd earthful-growth-strategy-dashboard
+open index.html
+🧠 Why This Project Matters (Recruiter Lens)
 
-* **Inputs used:**
+This project demonstrates:
 
-  * Product pricing (₹ per capsule, ₹ per day)
-  * Customer ratings (★)
-  * Review sentiment themes (quality, trust, effectiveness)
-  * Brand claims (clean-label, certifications, ingredients)
+Founder’s Office thinking (problem → insight → execution)
+Ability to work with messy real-world data (Amazon reviews)
+Strong business intuition + analytical rigor
+Product mindset: turning analysis into a usable tool
+🔮 Future Improvements
+Automated Amazon scraping pipeline
+NLP-based sentiment analysis
+Multi-platform data (Flipkart, D2C brands)
+Filters + user inputs (full productization)
+👤 Author
 
-* **Approach:**
-
-  1. Benchmarked 6 competing brands
-  2. Normalized pricing into comparable units (₹/capsule, ₹/day)
-  3. Derived **clean-label score** based on ingredient transparency & claims
-  4. Interpreted **customer reviews qualitatively** to identify trust signals and gaps
-
----
-
-## 📊 Key Insights
-
-* **Premium Pricing:** Earthful is priced **50–200% higher** than competitors
-* **Strong Trust Positioning:** Backed by clean-label claims and positive review sentiment
-* **High Cost Barrier:** ₹21/day vs ₹6–₹18 competitors
-* **Review Gap Insight:** Lack of third-party validation reduces trust for new users
-
----
-
-## 🧩 Features
-
-### 📍 Brand Positioning Map
-
-* Price vs. clean-label score
-* Reflects **perceived value from both product claims + reviews**
-
-### 💰 Cost-per-Day Comparison
-
-* Converts pricing into **real consumer decision metric**
-
-### 📋 Competitive Matrix
-
-* Combines:
-
-  * Pricing
-  * Positioning
-  * Strengths
-  * Customer ratings
-
-### 🎯 Strategic White Space
-
-Derived from **both pricing gaps + customer perception gaps**:
-
-* Third-party certification (trust gap from reviews)
-* Kids nutrition (underserved segment)
-* Subscription model (repeat purchase signals in reviews)
-
----
-
-## 🎯 Why This Project Stands Out
-
-Unlike generic dashboards, this project:
-
-* Uses **real customer-generated data (reviews)**
-* Connects **qualitative insights → business strategy**
-* Demonstrates **Founder’s Office thinking**, not just analytics
-
----
-
-## 🧠 My Approach
-
-I treated this as a **real-world business problem**:
-
-* Not just “what is happening”
-* But **“why it matters and what to do next”**
-
-Blending:
-
-* Data analysis
-* Customer psychology
-* Strategic thinking
-
----
-
-## 📌 Future Improvements
-
-* Automated **Amazon review scraping + sentiment analysis (NLP)**
-* Review keyword clustering (trust, effectiveness, pricing concerns)
-* Expansion into **multi-platform analysis (Flipkart, D2C websites)**
-
----
-
-## 👤 Author
-
-**Shravan N V**
+Shravan N V
 PGDM-ABM, ICAR-NAARM
-Aspiring Strategy / Analyst / Founder’s Office roles
+Aspiring Strategy / Founder’s Office / Analyst roles
 
----
+⭐ If you found this useful
 
-## ⭐ If you found this useful
-
-Give it a ⭐ and let’s connect!
+Star ⭐ the repo and feel free to connect!
